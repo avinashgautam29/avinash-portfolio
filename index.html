@@ -1,195 +1,1000 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Avinash Gautam | System Administrator</title>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Avinash Gautam — System Administrator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  background: #0f172a;
-  color: #e2e8f0;
-  line-height: 1.6;
-}
+  :root {
+    --bg: #0b0f1a;
+    --surface: #111827;
+    --surface2: #1a2235;
+    --border: rgba(99,179,255,0.12);
+    --accent: #3b9eff;
+    --accent2: #00e5b0;
+    --accent3: #ff6b6b;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --highlight: rgba(59,158,255,0.08);
+  }
 
-header {
-  background: #1e293b;
-  padding: 40px;
-  text-align: center;
-}
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-h1 {
-  margin: 0;
-  font-size: 36px;
-}
+  html { scroll-behavior: smooth; }
 
-h2 {
-  color: #38bdf8;
-  border-bottom: 2px solid #38bdf8;
-  padding-bottom: 5px;
-}
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
 
-.container {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-}
+  /* ─── BACKGROUND GRID ─── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(59,158,255,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59,158,255,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
 
-.section {
-  margin-bottom: 30px;
-}
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px);
+    background: rgba(11,15,26,0.85);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 60px;
+  }
 
-.card {
-  background: #1e293b;
-  padding: 15px;
-  border-radius: 10px;
-  margin-top: 10px;
-}
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
 
-ul {
-  padding-left: 20px;
-}
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
 
-.badge {
-  display: inline-block;
-  background: #334155;
-  padding: 6px 10px;
-  margin: 5px;
-  border-radius: 6px;
-  font-size: 14px;
-}
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
 
-a {
-  color: #38bdf8;
-  text-decoration: none;
-}
+  .nav-links a:hover { color: var(--accent); }
 
-.contact {
-  margin-top: 10px;
-}
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 5% 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--accent2);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.1s forwards;
+  }
+
+  .hero h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3rem, 7vw, 6.5rem);
+    font-weight: 800;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.2s forwards;
+  }
+
+  .hero h1 span {
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.5rem);
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 28px;
+    letter-spacing: -0.01em;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.3s forwards;
+  }
+
+  .hero-desc {
+    max-width: 580px;
+    color: #94a3b8;
+    font-weight: 300;
+    font-size: 1.05rem;
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.4s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.5s forwards;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #0b0f1a;
+    font-weight: 700;
+  }
+  .btn-primary:hover { background: #5aaeff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,158,255,0.35); }
+
+  .btn-outline {
+    border: 1px solid var(--border);
+    color: var(--text);
+    background: transparent;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  .hero-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 56px;
+    opacity: 0;
+    animation: fadeUp 0.7s 0.6s forwards;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 5px 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+  .badge-dot {
+    width: 6px; height: 6px;
+    background: var(--accent2);
+    border-radius: 50%;
+  }
+
+  /* ─── SECTION LAYOUT ─── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 90px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    margin-bottom: 56px;
+    line-height: 1.1;
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, var(--border), transparent);
+    margin: 0;
+  }
+
+  /* ─── EXPERIENCE ─── */
+  .exp-list { display: flex; flex-direction: column; gap: 0; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+    padding: 44px 0;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.2s;
+  }
+
+  .exp-item:last-child { border-bottom: none; }
+
+  .exp-meta {}
+
+  .exp-period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .exp-company {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--accent);
+  }
+
+  .exp-location {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .exp-body {}
+
+  .exp-role {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .exp-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 20px;
+  }
+
+  .tag {
+    background: var(--highlight);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 0.72rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+  }
+
+  .exp-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .exp-bullets li {
+    display: flex;
+    gap: 12px;
+    color: #94a3b8;
+    font-size: 0.93rem;
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  .exp-bullets li::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 0.8rem;
+    margin-top: 3px;
+    flex-shrink: 0;
+  }
+
+  /* ─── SKILLS GRID ─── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .skill-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 28px;
+    transition: border-color 0.2s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+
+  .skill-card:hover { border-color: rgba(59,158,255,0.35); transform: translateY(-3px); }
+  .skill-card:hover::before { opacity: 1; }
+
+  .skill-card-icon {
+    font-size: 1.5rem;
+    margin-bottom: 14px;
+  }
+
+  .skill-card-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    margin-bottom: 14px;
+    letter-spacing: -0.01em;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+  }
+
+  .skill-pill {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 3px 9px;
+    font-size: 0.72rem;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* ─── PROJECTS ─── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 22px;
+  }
+
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .project-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    background: linear-gradient(transparent, rgba(59,158,255,0.04));
+    pointer-events: none;
+  }
+
+  .project-card:hover { border-color: rgba(59,158,255,0.4); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
+
+  .project-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--accent2);
+    letter-spacing: 0.15em;
+    margin-bottom: 16px;
+  }
+
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+
+  .project-stack {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--accent);
+    margin-bottom: 16px;
+    letter-spacing: 0.06em;
+  }
+
+  .project-desc {
+    color: #94a3b8;
+    font-size: 0.88rem;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* ─── CERTS ─── */
+  .certs-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    transition: border-color 0.2s;
+  }
+
+  .cert-item:hover { border-color: rgba(59,158,255,0.35); }
+
+  .cert-icon {
+    width: 36px; height: 36px;
+    background: var(--highlight);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+
+  .cert-text {}
+  .cert-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .cert-issuer {
+    font-size: 0.73rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-block::before {
+    content: '';
+    position: absolute;
+    top: -80px; left: 50%;
+    transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(59,158,255,0.06), transparent 70%);
+    pointer-events: none;
+  }
+
+  .contact-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+  }
+
+  .contact-sub {
+    color: var(--muted);
+    margin-bottom: 36px;
+    font-weight: 300;
+    font-size: 1rem;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 36px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: var(--text);
+    font-size: 0.88rem;
+    transition: all 0.2s;
+  }
+
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    text-align: center;
+    padding: 24px 5%;
+    color: var(--muted);
+    font-size: 0.78rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.06em;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .exp-item { grid-template-columns: 1fr; gap: 12px; }
+    .exp-meta { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; }
+    .nav-links { display: none; }
+    .contact-block { padding: 36px 24px; }
+  }
 </style>
 </head>
-
 <body>
 
-<header>
-  <h1>Avinash Gautam</h1>
-  <p>System Administrator | MSP | Virtualization | Backup & DR</p>
-  <p>Punjab | Open to Relocation</p>
-  <div class="contact">
-    📞 9780630064 | 
-    ✉ <a href="mailto:gautamavi19@gmail.com">gautamavi19@gmail.com</a> | 
-    🔗 <a href="https://linkedin.com/in/avinashgautam29">LinkedIn</a>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">AG.</div>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#certifications">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="position:relative;z-index:1;">
+<div class="hero">
+  <p class="hero-eyebrow">// System Administrator · MSP · Available</p>
+  <h1>Avinash<br><span>Gautam</span></h1>
+  <p class="hero-title">MSP · Virtualization · Backup & DR · Microsoft 365</p>
+  <p class="hero-desc">
+    System Administrator with hands-on MSP experience specialising in Microsoft 365, Datto BCDR, VMware, and Proxmox. 
+    I resolve production backup failures, manage multi-client SLAs, and build automation tools — independently.
+  </p>
+  <div class="hero-cta">
+    <a href="mailto:gautamavi19@gmail.com" class="btn btn-primary">↗ Get in touch</a>
+    <a href="https://linkedin.com/in/avinashgautam29" target="_blank" class="btn btn-outline">LinkedIn Profile</a>
   </div>
-</header>
+  <div class="hero-badges">
+    <span class="badge"><span class="badge-dot"></span>Punjab, India</span>
+    <span class="badge"><span class="badge-dot"></span>Open to Relocation</span>
+    <span class="badge"><span class="badge-dot" style="background:var(--accent)"></span>MS-900 Certified</span>
+    <span class="badge"><span class="badge-dot" style="background:var(--accent3)"></span>ISO 27001 Experience</span>
+    <span class="badge"><span class="badge-dot" style="background:var(--accent)"></span>+91 9780630064</span>
+  </div>
+</div>
+</div>
 
-<div class="container">
+<div class="divider"></div>
 
-  <div class="section">
-    <h2>Professional Summary</h2>
-    <p>
-      System Administrator with hands-on experience in MSP environments, specializing in Microsoft 365, Datto BCDR, and virtualization platforms including VMware and Proxmox. Skilled in troubleshooting production issues, backup failures, and virtual infrastructure. Strong exposure to ISO 27001 & ISO 9001 compliance, audit readiness, and security controls.
+<!-- EXPERIENCE -->
+<section id="experience">
+  <p class="section-label">// 02. Career</p>
+  <h2 class="section-title">Professional<br>Experience</h2>
+
+  <div class="exp-list">
+
+    <!-- Alaric -->
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <p class="exp-period">MAY 2024 — PRESENT</p>
+        <p class="exp-company">Alaric Ventures</p>
+        <p class="exp-location">📍 Punjab, India</p>
+      </div>
+      <div class="exp-body">
+        <p class="exp-role">System Administrator L1 (MSP)</p>
+        <div class="exp-tags">
+          <span class="tag">Datto BCDR</span>
+          <span class="tag">VMware vCenter</span>
+          <span class="tag">Proxmox</span>
+          <span class="tag">Microsoft 365</span>
+          <span class="tag">Active Directory</span>
+          <span class="tag">PowerShell</span>
+          <span class="tag">ISO 27001</span>
+          <span class="tag">Autotask</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Manage multi-client environments ensuring uptime and SLA compliance across P1/P2 incident response and root cause analysis</li>
+          <li>Troubleshoot Datto BCDR backup failures, screenshot verification issues, and offsite sync delays — resolved a 9-day overdue sync (DWPCTDATTO02)</li>
+          <li>Perform Instant Virtualization and disaster recovery testing; validate restore points and backup integrity</li>
+          <li>Administer Microsoft 365 tenants: user provisioning, licensing, mail flow, OWA troubleshooting (Error 448/500 / Azure AD Entra ID token sync issues)</li>
+          <li>Manage Active Directory — account creation, domain unlocks, group policy compliance including ProLaw legal software environments</li>
+          <li>Manage VMware environments (vCenter, vSphere) and Proxmox VE for VM creation, troubleshooting, and resource allocation</li>
+          <li>Use Dell iDRAC for remote server management, hardware health monitoring, and out-of-band access</li>
+          <li>Resolved VSS writer failures (System Writer, WMI Writer, MSSearch Writer) on Datto Windows Agent 3.0.18.20 per KB400000010027</li>
+          <li>Built Python/Excel automation tracker consolidating ~2,200 rows of Resource Hours and Helpdesk ticket data with deduplication and status normalisation logic</li>
+          <li>Challenged Kaseya support ruling (DBMA exclusion) using device-specific evidence — case resolved in client's favour</li>
+          <li>Coordinated full-cycle user onboarding: device provisioning, MAC address whitelisting, M365 account/mailbox setup, and offboarding/OneDrive access workflows</li>
+          <li>Actively supported ISO 27001 (ISMS) implementation and ISO 9001 process standardisation across the organisation</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Sherweb -->
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <p class="exp-period">JUN 2023 — APR 2024</p>
+        <p class="exp-company">Sherweb</p>
+        <p class="exp-location">🌐 Remote</p>
+      </div>
+      <div class="exp-body">
+        <p class="exp-role">M365 Technical Advisor</p>
+        <div class="exp-tags">
+          <span class="tag">Exchange Online</span>
+          <span class="tag">Azure AD / Entra ID</span>
+          <span class="tag">Microsoft 365</span>
+          <span class="tag">Teams</span>
+          <span class="tag">SharePoint</span>
+          <span class="tag">MFA</span>
+          <span class="tag">Hybrid Identity</span>
+          <span class="tag">VPN</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Delivered Tier 2 M365 support for MSP partner clients across North America, resolving complex Exchange Online, Outlook, and mail flow incidents within strict SLA windows</li>
+          <li>Diagnosed and resolved Azure AD / Entra ID token synchronisation failures, Conditional Access policy conflicts, and MFA registration issues for end-users and admins</li>
+          <li>Managed tenant-level user lifecycle: provisioning, license assignment, role-based access control, and account deprovisioning — ensuring zero-access-gap during offboarding</li>
+          <li>Troubleshot hybrid identity problems in mixed AD/Azure AD environments including AD Connect sync errors, attribute mismatches, and UPN suffix discrepancies</li>
+          <li>Resolved Teams, SharePoint, and OneDrive access and permission issues including guest access policies, site-collection admin rights, and external sharing configurations</li>
+          <li>Handled VPN and network-layer connectivity issues affecting M365 service access, coordinating with client-side network teams to resolve split-tunnel and firewall misconfigurations</li>
+          <li>Owned technical escalations end-to-end — opened Microsoft support cases, tracked resolution, and communicated status updates to partners, maintaining high client satisfaction ratings</li>
+          <li>Authored and maintained internal knowledge base articles documenting recurring M365 issues and resolution playbooks, reducing average handle time for repeat incidents</li>
+          <li>Consistently achieved first-call resolution targets and positive CSAT scores in a high-volume, multiclient partner support environment</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Previous -->
+    <div class="exp-item fade-in">
+      <div class="exp-meta">
+        <p class="exp-period">PRE JUN 2023</p>
+        <p class="exp-company">Various</p>
+        <p class="exp-location">📍 India</p>
+      </div>
+      <div class="exp-body">
+        <p class="exp-role">Digital Marketing & SEO Roles</p>
+        <div class="exp-tags">
+          <span class="tag">Social Media Marketing</span>
+          <span class="tag">SEO</span>
+          <span class="tag">Digital Marketing</span>
+        </div>
+        <ul class="exp-bullets">
+          <li>Social Media Marketing Specialist — Alaric Ventures</li>
+          <li>Digital Marketing Manager — PACEWALK</li>
+          <li>SEO Executive — Xitzone Info Tech</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">// 03. Capabilities</p>
+  <h2 class="section-title">Technical<br>Skills</h2>
+
+  <div class="skills-grid">
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">☁️</div>
+      <p class="skill-card-title">Cloud & Microsoft 365</p>
+      <div class="skill-list">
+        <span class="skill-pill">Microsoft 365</span>
+        <span class="skill-pill">Exchange Online</span>
+        <span class="skill-pill">Azure AD / Entra ID</span>
+        <span class="skill-pill">SharePoint</span>
+        <span class="skill-pill">OneDrive</span>
+        <span class="skill-pill">Teams</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">💾</div>
+      <p class="skill-card-title">Backup & Disaster Recovery</p>
+      <div class="skill-list">
+        <span class="skill-pill">Datto BCDR</span>
+        <span class="skill-pill">SIRIS / Cloud</span>
+        <span class="skill-pill">Instant Virtualization</span>
+        <span class="skill-pill">VSS Troubleshooting</span>
+        <span class="skill-pill">Offsite Sync</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">🖥️</div>
+      <p class="skill-card-title">Virtualization</p>
+      <div class="skill-list">
+        <span class="skill-pill">VMware vCenter</span>
+        <span class="skill-pill">vSphere</span>
+        <span class="skill-pill">Proxmox VE</span>
+        <span class="skill-pill">Hyper-V</span>
+        <span class="skill-pill">Dell iDRAC</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">🗂️</div>
+      <p class="skill-card-title">OS & Identity</p>
+      <div class="skill-list">
+        <span class="skill-pill">Windows Server</span>
+        <span class="skill-pill">Active Directory</span>
+        <span class="skill-pill">Group Policy</span>
+        <span class="skill-pill">Windows 11 Pro</span>
+        <span class="skill-pill">BCD/EFI Repair</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">⚡</div>
+      <p class="skill-card-title">Scripting & Automation</p>
+      <div class="skill-list">
+        <span class="skill-pill">PowerShell</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Excel Automation</span>
+        <span class="skill-pill">Data Pipeline Dev</span>
+        <span class="skill-pill">Get-CimInstance</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">🎫</div>
+      <p class="skill-card-title">ITSM & Ticketing</p>
+      <div class="skill-list">
+        <span class="skill-pill">Autotask</span>
+        <span class="skill-pill">Kaseya</span>
+        <span class="skill-pill">SLA Management</span>
+        <span class="skill-pill">P1/P2 Incident Response</span>
+        <span class="skill-pill">RCA</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">🌐</div>
+      <p class="skill-card-title">Networking</p>
+      <div class="skill-list">
+        <span class="skill-pill">VPN Troubleshooting</span>
+        <span class="skill-pill">MAC Whitelisting</span>
+        <span class="skill-pill">Network Diagnostics</span>
+        <span class="skill-pill">Firewall Coordination</span>
+      </div>
+    </div>
+    <div class="skill-card fade-in">
+      <div class="skill-card-icon">🔒</div>
+      <p class="skill-card-title">Compliance</p>
+      <div class="skill-list">
+        <span class="skill-pill">ISO 27001 (ISMS)</span>
+        <span class="skill-pill">ISO 9001</span>
+        <span class="skill-pill">Audit Readiness</span>
+        <span class="skill-pill">Security Controls</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">// 04. Key Projects</p>
+  <h2 class="section-title">Notable<br>Work</h2>
+
+  <div class="projects-grid">
+    <div class="project-card fade-in">
+      <p class="project-num">PROJECT_01</p>
+      <p class="project-title">Datto Backup Failure & Recovery</p>
+      <p class="project-stack">Datto BCDR · VSS · Instant Virtualization · Datto Windows Agent</p>
+      <p class="project-desc">
+        Diagnosed and resolved recurring screenshot verification failures across multiple client devices in Datto BCDR. 
+        Resolved VSS writer chain failures (System Writer, WMI, MSSearch) and performed Datto Windows Agent reinstall per official KB400000010027. 
+        Validated Instant Virtualization restore points and significantly improved overall backup reliability, reducing recurring incidents.
+      </p>
+    </div>
+    <div class="project-card fade-in">
+      <p class="project-num">PROJECT_02</p>
+      <p class="project-title">ISO 27001 & ISO 9001 Compliance Implementation</p>
+      <p class="project-stack">ISO 27001 (ISMS) · ISO 9001 · Audit Readiness · Security Controls</p>
+      <p class="project-desc">
+        Supported full ISO 27001 ISMS implementation — control mapping, risk assessments, and policy documentation. 
+        Maintained evidence logs, access control records, and incident reports for audit readiness. 
+        Contributed to ISO 9001 process standardisation, defining repeatable IT service delivery procedures. 
+        Participated in compliance remediation, coordinating with management and external auditors.
+      </p>
+    </div>
+    <div class="project-card fade-in">
+      <p class="project-num">PROJECT_03</p>
+      <p class="project-title">Helpdesk Automation Tracker</p>
+      <p class="project-stack">Python · Excel · Data Pipeline · Pandas · Deduplication Logic</p>
+      <p class="project-desc">
+        Built a Python/Excel automation tracker consolidating Resource Hours and Helpdesk ticket data (~2,200 rows, Dec 2025–Mar 2026). 
+        Implemented deduplication and status normalisation logic to reduce manual reconciliation overhead and produce clean reporting for management review.
+      </p>
+    </div>
+    <div class="project-card fade-in">
+      <p class="project-num">PROJECT_04</p>
+      <p class="project-title">Kaseya Support Case — DBMA Exclusion Reversal</p>
+      <p class="project-stack">Kaseya · Autotask · Escalation Management · Technical Advocacy</p>
+      <p class="project-desc">
+        Successfully challenged a Kaseya support ruling on a DBMA exclusion case using device-specific diagnostic evidence. 
+        Escalated through official channels with structured evidence compilation, resulting in the case being resolved in the client's favour — demonstrating both technical depth and client advocacy skills.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <p class="section-label">// 05. Credentials</p>
+  <h2 class="section-title">Certifications &<br>Training</h2>
+
+  <div class="certs-list">
+    <div class="cert-item fade-in">
+      <div class="cert-icon">🏆</div>
+      <div class="cert-text">
+        <p class="cert-name">Microsoft 365 Certified: Fundamentals (MS-900)</p>
+        <p class="cert-issuer">Microsoft</p>
+      </div>
+    </div>
+    <div class="cert-item fade-in">
+      <div class="cert-icon">💬</div>
+      <div class="cert-text">
+        <p class="cert-name">Microsoft Teams Fundamentals</p>
+        <p class="cert-issuer">Microsoft</p>
+      </div>
+    </div>
+    <div class="cert-item fade-in">
+      <div class="cert-icon">📧</div>
+      <div class="cert-text">
+        <p class="cert-name">Microsoft Outlook Fundamentals</p>
+        <p class="cert-issuer">Microsoft</p>
+      </div>
+    </div>
+    <div class="cert-item fade-in">
+      <div class="cert-icon">📊</div>
+      <div class="cert-text">
+        <p class="cert-name">Microsoft Excel Fundamentals</p>
+        <p class="cert-issuer">Microsoft</p>
+      </div>
+    </div>
+    <div class="cert-item fade-in">
+      <div class="cert-icon">📑</div>
+      <div class="cert-text">
+        <p class="cert-name">Microsoft PowerPoint Fundamentals</p>
+        <p class="cert-issuer">Microsoft</p>
+      </div>
+    </div>
+    <div class="cert-item fade-in">
+      <div class="cert-icon">🔐</div>
+      <div class="cert-text">
+        <p class="cert-name">Google Cybersecurity Training</p>
+        <p class="cert-issuer">Google</p>
+      </div>
+    </div>
+    <div class="cert-item fade-in">
+      <div class="cert-icon">🛡️</div>
+      <div class="cert-text">
+        <p class="cert-name">Cybersecurity Training (2025)</p>
+        <p class="cert-issuer">Professional Development</p>
+      </div>
+    </div>
+    <div class="cert-item fade-in">
+      <div class="cert-icon">🤖</div>
+      <div class="cert-text">
+        <p class="cert-name">AI Skills in Action</p>
+        <p class="cert-issuer">Professional Development</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-block fade-in">
+    <h2 class="contact-title">Let's Connect</h2>
+    <p class="contact-sub">Open to new opportunities · Available for relocation · Responsive to messages</p>
+    <div class="contact-links">
+      <a href="mailto:gautamavi19@gmail.com" class="contact-link">
+        <span>✉️</span> gautamavi19@gmail.com
+      </a>
+      <a href="tel:+919780630064" class="contact-link">
+        <span>📞</span> +91 9780630064
+      </a>
+      <a href="https://linkedin.com/in/avinashgautam29" target="_blank" class="contact-link">
+        <span>💼</span> linkedin.com/in/avinashgautam29
+      </a>
+    </div>
+    <p style="color:var(--muted);font-size:0.8rem;">
+      B.Tech Computer Science · Punjab Technical University<br>
+      Punjab, India · Open to Relocation
     </p>
   </div>
+</section>
 
-  <div class="section">
-    <h2>Core Skills</h2>
-    <div>
-      <span class="badge">Microsoft 365</span>
-      <span class="badge">Exchange Online</span>
-      <span class="badge">Azure AD</span>
-      <span class="badge">Active Directory</span>
-      <span class="badge">Datto BCDR</span>
-      <span class="badge">VMware (vCenter, vSphere)</span>
-      <span class="badge">Proxmox VE</span>
-      <span class="badge">Dell iDRAC</span>
-      <span class="badge">Windows Server</span>
-      <span class="badge">Networking & VPN</span>
-      <span class="badge">RCA & SLA</span>
-      <span class="badge">Autotask</span>
-    </div>
-  </div>
+<!-- FOOTER -->
+<footer>
+  <span>Avinash Gautam · System Administrator · Built for GitHub Pages</span>
+</footer>
 
-  <div class="section">
-    <h2>Professional Experience</h2>
+<script>
+  // Scroll-triggered fade-in
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
 
-    <div class="card">
-      <h3>System Administrator L1 (MSP)</h3>
-      <p><strong>Alaric Ventures Pvt Ltd</strong> | May 2024 – Present</p>
-      <ul>
-        <li>Manage multi-client environments ensuring uptime and SLA compliance</li>
-        <li>Troubleshoot Datto BCDR backup failures and screenshot verification issues</li>
-        <li>Perform Instant Virtualization and disaster recovery testing</li>
-        <li>Handle P1/P2 incidents and perform root cause analysis</li>
-        <li>Administer Microsoft 365 (user provisioning, licensing, mail flow)</li>
-        <li>Manage VMware environments (vCenter, vSphere)</li>
-        <li>Work with Proxmox VE for VM creation and troubleshooting</li>
-        <li>Use Dell iDRAC for remote server management</li>
-        <li>Support ISO 27001 & ISO 9001 audit readiness</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>M365 Technical Advisor</h3>
-      <p><strong>Sherweb</strong> | Jun 2023 – Apr 2024</p>
-      <ul>
-        <li>Resolved Exchange Online, Outlook, and mail flow issues</li>
-        <li>Managed Azure AD and Active Directory users</li>
-        <li>Troubleshot VPN and network issues</li>
-      </ul>
-    </div>
-
-  </div>
-
-  <div class="section">
-    <h2>Key Project</h2>
-    <div class="card">
-      <h3>Datto Backup Failure & Recovery</h3>
-      <ul>
-        <li>Resolved screenshot verification failures in Datto BCDR</li>
-        <li>Performed Instant Virtualization testing</li>
-        <li>Improved backup reliability and reduced recurring issues</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="section">
-    <h2>Compliance & Security</h2>
-    <ul>
-      <li>Supported ISO 27001 (ISMS) implementation and audit readiness</li>
-      <li>Contributed to ISO 9001 process standardization</li>
-      <li>Participated in audits and compliance remediation</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Microsoft 365 Certified: Fundamentals (MS-900)</li>
-      <li>Microsoft Teams, Outlook, Excel, PowerPoint Fundamentals</li>
-      <li>Google Cybersecurity Training</li>
-      <li>Cybersecurity Training (2025)</li>
-      <li>AI Skills in Action</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Education</h2>
-    <p><strong>B.Tech (Computer Science)</strong><br>Punjab Technical University</p>
-  </div>
-
-  <div class="section">
-    <h2>Previous Experience</h2>
-    <ul>
-      <li>Social Media Marketing Specialist – Alaric Ventures</li>
-      <li>Digital Marketing Manager – PACEWALK</li>
-      <li>SEO Executive – Xitzone Info Tech</li>
-    </ul>
-  </div>
-
-</div>
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
