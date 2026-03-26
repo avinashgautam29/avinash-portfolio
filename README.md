@@ -62,16 +62,16 @@ System Administrator with hands-on experience in MSP environments, managing mult
 ## 📂 Repository Structure  
 
 ### 🚀 Case Studies  
-- [Datto Backup Failure Case Study](case-studies/datto-case-study.md)  
-- [VMware Performance Issue Case Study](case-studies/vmware-case-study.md)  
-- [Proxmox VM Issue Case Study](case-studies/proxmox-case-study.md)  
+- [Datto Backup Failure Case Study](tech-case-studies/case-studies/datto-case-study.md)  
+- [VMware Performance Issue Case Study](tech-case-studies/case-studies/vmware-case-study.md)  
+- [Proxmox VM Issue Case Study](tech-case-studies/case-studies/proxmox-case-study.md)  
 
 ### 🛠 Troubleshooting Guides  
-- [Datto Screenshot Failure](troubleshooting/datto-screenshot-failure.md)  
-- [VMware Troubleshooting](troubleshooting/vmware-troubleshooting.md)  
-- [Proxmox VM Management](troubleshooting/proxmox-vm-management.md)  
-- [Microsoft 365 Mail Flow Issues](troubleshooting/m365-mailflow-outlook.md)  
-- [Dell iDRAC Server Management](troubleshooting/idrac-server-management.md)  
+- [Datto Screenshot Failure](tech-case-studies/troubleshooting/datto-screenshot-failure.md)  
+- [VMware Troubleshooting](tech-case-studies/troubleshooting/vmware-troubleshooting.md)  
+- [Proxmox VM Management](tech-case-studies/troubleshooting/proxmox-vm-management.md)  
+- [Microsoft 365 Mail Flow Issues](tech-case-studies/troubleshooting/m365-mailflow-outlook.md)  
+- [Dell iDRAC Server Management](tech-case-studies/troubleshooting/idrac-server-management.md)  
 
 ---
 
