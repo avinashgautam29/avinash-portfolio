@@ -48,6 +48,17 @@ System Administrator with hands-on experience in MSP environments, managing mult
 
 ---
 
+## 📌 Featured Work  
+
+- 🔥 Backup Failure Root Cause Analysis (Datto BCDR)  
+- ⚙️ Virtualization Management (VMware & Proxmox)  
+- 📧 Microsoft 365 Troubleshooting  
+- 🖥 Server Management using iDRAC  
+
+👉 Explore repositories for real-world troubleshooting documentation.
+
+---
+
 ## 📂 Repository Structure  
 
 ### 🚀 Case Studies  
@@ -64,14 +75,13 @@ System Administrator with hands-on experience in MSP environments, managing mult
 
 ---
 
-## 📌 Featured Work  
+## 💼 Professional Highlights  
 
-- 🔥 Backup Failure Root Cause Analysis (Datto BCDR)  
-- ⚙️ Virtualization Management (VMware & Proxmox)  
-- 📧 Microsoft 365 Troubleshooting  
-- 🖥 Server Management using iDRAC  
-
-👉 Explore repositories for real-world troubleshooting documentation.
+- ✔ Experience working in MSP environments handling multiple clients  
+- ✔ Strong troubleshooting skills in backup, virtualization, and M365  
+- ✔ Hands-on with Datto BCDR, VMware, Proxmox, and iDRAC  
+- ✔ Exposure to ISO 27001 & ISO 9001 audit and compliance  
+- ✔ Proven ability to handle P1/P2 incidents and RCA  
 
 ---
 
