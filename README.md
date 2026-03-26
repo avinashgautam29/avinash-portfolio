@@ -1,4 +1,4 @@
-# 👋 Hi, I'm Avinash Gautam  
+# 👋 Hi, I'm Avinash 
 
 💼 System Administrator | MSP Experience  
 🔧 Microsoft 365 | Datto BCDR | VMware | Proxmox  
@@ -25,6 +25,22 @@ I also have experience working on ISO 27001 & ISO 9001 compliance, including aud
 - Managing virtual machines and infrastructure  
 - Resolving mail flow and Outlook issues  
 - Supporting multi-client MSP environments  
+
+---
+
+## 📂 Repository Structure
+
+### 🚀 Case Studies
+- Datto Backup Failure Case Study  
+- VMware Performance Issue Case Study  
+- Proxmox VM Issue Case Study  
+
+### 🛠 Troubleshooting Guides
+- Datto Screenshot Failure  
+- VMware Troubleshooting  
+- Proxmox VM Management  
+- Microsoft 365 Mail Flow Issues  
+- Dell iDRAC Server Management  
 
 ---
 
