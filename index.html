@@ -395,63 +395,22 @@
   }
 
   /* ─── PROJECTS ─── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 22px;
-  }
+  <div class="project-card fade-in">
+  <p class="project-num">PROJECT_01</p>
+  <p class="project-title">IT Case Studies & Troubleshooting Repository</p>
+  <p class="project-stack">Datto · VMware · Proxmox · Microsoft 365 · iDRAC</p>
 
-  .project-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 32px;
-    transition: all 0.25s;
-    position: relative;
-    overflow: hidden;
-  }
+  <p class="project-desc">
+    A structured repository documenting real-world IT incidents, root cause analysis, and resolution steps across MSP environments.
+    Includes backup failures, virtualization issues, and Microsoft 365 troubleshooting playbooks.
+  </p>
 
-  .project-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0; left: 0; right: 0;
-    height: 60px;
-    background: linear-gradient(transparent, rgba(59,158,255,0.04));
-    pointer-events: none;
-  }
+  <br>
 
-  .project-card:hover { border-color: rgba(59,158,255,0.4); transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,0,0,0.3); }
-
-  .project-num {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.68rem;
-    color: var(--accent2);
-    letter-spacing: 0.15em;
-    margin-bottom: 16px;
-  }
-
-  .project-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 1.1rem;
-    margin-bottom: 12px;
-    letter-spacing: -0.02em;
-  }
-
-  .project-stack {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.7rem;
-    color: var(--accent);
-    margin-bottom: 16px;
-    letter-spacing: 0.06em;
-  }
-
-  .project-desc {
-    color: #94a3b8;
-    font-size: 0.88rem;
-    font-weight: 300;
-    line-height: 1.65;
-  }
+  <a href="https://github.com/avinashgautam29/tech-case-studies" target="_blank" class="btn btn-outline">
+    View Full Repository
+  </a>
+</div>
 
   /* ─── CERTS ─── */
   .certs-list {
