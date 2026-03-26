@@ -17,6 +17,13 @@
 ![iDRAC](https://img.shields.io/badge/Dell-iDRAC-critical)
 
 ---
+## 📊 GitHub Stats  
+
+![Avinash's GitHub stats](https://github-readme-stats.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=default)
+
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=avinashgautam29&layout=compact)
+
+---
 
 ## 🚀 About Me  
 System Administrator with hands-on experience in MSP environments, managing multi-client infrastructures and resolving real-world production issues.
