@@ -1,2 +1,2 @@
-# avinash-resume
+# avinash
 Resume
