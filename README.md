@@ -1,22 +1,33 @@
-# 👋 Hi, I'm Avinash 
+# 👋 Hi, I'm Avinash
 
-💼 System Administrator | MSP Experience  
-🔧 Microsoft 365 | Datto BCDR | VMware | Proxmox  
+💼 **System Administrator | MSP Experience**  
 📍 Punjab | Open to Relocation  
 
 ---
 
+## 🧑‍💻 Tech Stack  
+
+![Microsoft 365](https://img.shields.io/badge/Microsoft_365-Admin-blue?logo=microsoft)
+![VMware](https://img.shields.io/badge/VMware-vSphere-blue?logo=vmware)
+![Proxmox](https://img.shields.io/badge/Proxmox-VE-orange?logo=proxmox)
+![Datto](https://img.shields.io/badge/Datto-BCDR-green)
+![Windows Server](https://img.shields.io/badge/Windows_Server-Admin-blue?logo=windows)
+![Azure AD](https://img.shields.io/badge/Azure_AD-Identity-blue?logo=microsoftazure)
+![Networking](https://img.shields.io/badge/Networking-VPN-important)
+![iDRAC](https://img.shields.io/badge/Dell-iDRAC-critical)
+
+---
+
 ## 🚀 About Me  
-I am a System Administrator with hands-on experience in MSP environments, managing multiple client infrastructures and handling real-world production issues.
+System Administrator with hands-on experience in MSP environments, managing multi-client infrastructures and resolving real-world production issues.
 
-My expertise includes:
-- Microsoft 365 Administration (Exchange Online, Azure AD)  
-- Backup & Disaster Recovery (Datto BCDR)  
-- Virtualization (VMware vCenter/vSphere & Proxmox VE)  
-- Server Management (Dell iDRAC)  
-- Incident Management & Root Cause Analysis  
+🔹 Microsoft 365 Administration (Exchange Online, Azure AD)  
+🔹 Backup & Disaster Recovery (Datto BCDR)  
+🔹 Virtualization (VMware vCenter/vSphere & Proxmox VE)  
+🔹 Server Management (Dell iDRAC)  
+🔹 Incident Management & Root Cause Analysis  
 
-I also have experience working on ISO 27001 & ISO 9001 compliance, including audit readiness and security controls.
+🔐 Experience with ISO 27001 & ISO 9001 compliance, including audit readiness and security controls.
 
 ---
 
@@ -28,35 +39,34 @@ I also have experience working on ISO 27001 & ISO 9001 compliance, including aud
 
 ---
 
-## 📂 Repository Structure
+## 📂 Repository Structure  
 
-### 🚀 Case Studies
-- Datto Backup Failure Case Study  
-- VMware Performance Issue Case Study  
-- Proxmox VM Issue Case Study  
+### 🚀 Case Studies  
+- [Datto Backup Failure Case Study](case-studies/datto-case-study.md)  
+- [VMware Performance Issue Case Study](case-studies/vmware-case-study.md)  
+- [Proxmox VM Issue Case Study](case-studies/proxmox-case-study.md)  
 
-### 🛠 Troubleshooting Guides
-- Datto Screenshot Failure  
-- VMware Troubleshooting  
-- Proxmox VM Management  
-- Microsoft 365 Mail Flow Issues  
-- Dell iDRAC Server Management  
+### 🛠 Troubleshooting Guides  
+- [Datto Screenshot Failure](troubleshooting/datto-screenshot-failure.md)  
+- [VMware Troubleshooting](troubleshooting/vmware-troubleshooting.md)  
+- [Proxmox VM Management](troubleshooting/proxmox-vm-management.md)  
+- [Microsoft 365 Mail Flow Issues](troubleshooting/m365-mailflow-outlook.md)  
+- [Dell iDRAC Server Management](troubleshooting/idrac-server-management.md)  
 
 ---
 
-## 📂 Featured Work  
+## 📌 Featured Work  
 
-- 📌 Datto Backup Troubleshooting  
-- 📌 VMware & Proxmox Virtualization  
-- 📌 Microsoft 365 Issue Resolution  
-- 📌 Server Management using iDRAC  
+- 🔥 Backup Failure Root Cause Analysis (Datto BCDR)  
+- ⚙️ Virtualization Management (VMware & Proxmox)  
+- 📧 Microsoft 365 Troubleshooting  
+- 🖥 Server Management using iDRAC  
 
-👉 Check my repositories for real-world troubleshooting documentation.
+👉 Explore repositories for real-world troubleshooting documentation.
 
 ---
 
 ## 🎯 Career Goals  
-Looking to grow into:
 - System Administrator (L2)  
 - Infrastructure Engineer  
 - IT Operations Engineer  
@@ -64,9 +74,9 @@ Looking to grow into:
 ---
 
 ## 📫 Contact Me  
-📧 gautamavi19@gmail.com  
-🔗 LinkedIn: https://linkedin.com/in/avinashgautam29  
+📧 **gautamavi19@gmail.com**  
+🔗 **LinkedIn:** https://linkedin.com/in/avinashgautam29  
 
 ---
 
-⭐ Open to opportunities in System Administration and Infrastructure roles
+⭐ *Open to opportunities in System Administration and Infrastructure roles*
