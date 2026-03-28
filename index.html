@@ -576,11 +576,15 @@
   }
 
   .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 1;
+    transform: translateY(0);
     transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  .fade-in.visible {
+  .fade-in.animate-ready {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .fade-in.animate-ready.visible {
     opacity: 1;
     transform: translateY(0);
   }
@@ -1146,8 +1150,8 @@
     <h2 class="contact-title">Let's Connect</h2>
     <p class="contact-sub">Open to new opportunities · Available for relocation · Responsive to messages</p>
     <div class="contact-links">
-      <a href="/cdn-cgi/l/email-protection#791e180c0d1814180f104840391e14181015571a1614" class="contact-link">
-        <span>✉️</span> <span class="__cf_email__" data-cfemail="5a3d3b2f2e3b373b2c336b631a3d373b333674393537">[email&#160;protected]</span>
+      <a href="mailto:gautamavi19@gmail.com" class="contact-link">
+        <span>✉️</span> gautamavi19@gmail.com
       </a>
       <a href="tel:+919780630064" class="contact-link">
         <span>📞</span> +91 9780630064
@@ -1168,8 +1172,30 @@
   <span>Avinash Gautam · System Administrator · Built for GitHub Pages</span>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-  // Scroll-triggered fade-in
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isInters
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const els = document.querySelectorAll('.fade-in');
+
+    if ('IntersectionObserver' in window) {
+      // Mark elements for animation
+      els.forEach(el => el.classList.add('animate-ready'));
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+      els.forEach(el => observer.observe(el));
+
+      // Safety fallback: show everything after 1.5s
+      setTimeout(() => {
+        els.forEach(el => el.classList.add('visible'));
+      }, 1500);
+    }
+    // If no IntersectionObserver, elements stay visible (no animate-ready added)
+  });
+</script>
