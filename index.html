@@ -5,61 +5,121 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Avinash Gautam — System Administrator</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
 :root {
   --bg: #fafaf8;
   --surface: #ffffff;
+  --surface2: #f4f4f0;
   --border: #e5e5e0;
   --accent: #1a1a2e;
   --accent2: #2563eb;
   --text: #1a1a1a;
+  --muted: #6b7280;
 }
 
+/* DARK */
 .dark-mode {
   --bg: #0b0c10;
   --surface: #111217;
+  --surface2: #1a1c22;
   --border: #2a2d35;
   --accent: #ffffff;
   --accent2: #3b82f6;
   --text: #e5e7eb;
 }
 
+/* AMOLED */
+.amoled-mode {
+  --bg: #000000;
+  --surface: #0a0a0a;
+  --surface2: #111;
+  --border: #1f1f1f;
+  --accent: #ffffff;
+  --accent2: #3b82f6;
+  --text: #ffffff;
+}
+
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: Arial;
-  margin:0;
+  font-family: 'Inter', sans-serif;
+  margin: 0;
 }
 
+/* NAV */
 nav {
   display:flex;
   justify-content:space-between;
-  padding:15px;
+  align-items:center;
+  padding:15px 6%;
   border-bottom:1px solid var(--border);
 }
 
+.nav-logo {
+  font-weight:800;
+  font-size:18px;
+}
+
+.nav-links {
+  display:flex;
+  gap:20px;
+}
+
+.nav-links a {
+  text-decoration:none;
+  color:var(--muted);
+}
+
+/* THEME SWITCHER */
 .theme-switcher {
-  position:relative;
+  position: relative;
 }
 
 #themeBtn {
-  background:var(--surface);
-  border:1px solid var(--border);
-  padding:6px 10px;
-  cursor:pointer;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 6px 10px;
+  cursor: pointer;
 }
 
 .theme-menu {
   display:none;
   position:absolute;
   right:0;
+  top:40px;
   background:var(--surface);
   border:1px solid var(--border);
+  width:160px;
 }
 
 .theme-option {
-  padding:8px;
+  padding:10px;
+  display:flex;
+  justify-content:space-between;
   cursor:pointer;
+}
+
+.theme-option:hover {
+  background:var(--surface2);
+}
+
+.check { display:none; }
+.theme-option.active .check { display:inline; }
+
+/* HERO */
+.hero {
+  padding:100px 6%;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size:50px;
+}
+
+.hero p {
+  color:var(--muted);
 }
 </style>
 </head>
@@ -67,20 +127,30 @@ nav {
 <body>
 
 <nav>
-  <div>AG</div>
+  <div class="nav-logo">AG.</div>
 
-  <div class="theme-switcher">
-    <button id="themeBtn">🌓</button>
-    <div id="themeMenu" class="theme-menu">
-      <div class="theme-option" data-theme="light">Light</div>
-      <div class="theme-option" data-theme="dark">Dark</div>
+  <div style="display:flex; align-items:center; gap:20px;">
+    <div class="nav-links">
+      <a href="#">Experience</a>
+      <a href="#">Skills</a>
+      <a href="#">Projects</a>
+    </div>
+
+    <div class="theme-switcher">
+      <button id="themeBtn">🌓</button>
+
+      <div id="themeMenu" class="theme-menu">
+        <div class="theme-option" data-theme="light">🌞 Light <span class="check">✔</span></div>
+        <div class="theme-option" data-theme="dark">🌙 Dark <span class="check">✔</span></div>
+        <div class="theme-option" data-theme="amoled">🌚 AMOLED <span class="check">✔</span></div>
+      </div>
     </div>
   </div>
 </nav>
 
-<div style="padding:40px;">
-<h1>Avinash Gautam</h1>
-<p>System Administrator</p>
+<div class="hero">
+  <h1>Avinash Gautam</h1>
+  <p>System Administrator</p>
 </div>
 
 <script>
@@ -95,17 +165,36 @@ btn.onclick = () => {
 options.forEach(opt => {
   opt.onclick = () => {
     const theme = opt.dataset.theme;
-    document.body.classList.remove("dark-mode");
-    if(theme==="dark") document.body.classList.add("dark-mode");
+
+    document.body.classList.remove("dark-mode","amoled-mode");
+    if(theme !== "light") {
+      document.body.classList.add(theme + "-mode");
+    }
+
     localStorage.setItem("theme", theme);
-    menu.style.display="none";
+    setActive(theme);
+    menu.style.display = "none";
   };
 });
 
+function setActive(theme){
+  options.forEach(o=>o.classList.remove("active"));
+  document.querySelector(`[data-theme="${theme}"]`).classList.add("active");
+}
+
 window.onload = () => {
-  const saved = localStorage.getItem("theme");
-  if(saved==="dark") document.body.classList.add("dark-mode");
+  const saved = localStorage.getItem("theme") || "light";
+  if(saved !== "light"){
+    document.body.classList.add(saved + "-mode");
+  }
+  setActive(saved);
 };
+
+document.addEventListener("click", (e)=>{
+  if(!btn.contains(e.target) && !menu.contains(e.target)){
+    menu.style.display="none";
+  }
+});
 </script>
 
 </body>
